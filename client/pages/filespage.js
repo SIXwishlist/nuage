@@ -4,14 +4,13 @@ import BreadCrumb from './filespage/breadcrumb';
 import { Files, EventReceiver } from '../data/';
 import { NgIf, Loader, Error, debounce, goToFiles, goToViewer, Uploader } from '../utilities';
 
-import { DragDropContext } from 'react-dnd';
+import { DragDropContext } from 'preact-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { default as TouchBackend } from 'react-dnd-touch-backend';
 import Path from 'path';
 
 
 @EventReceiver
-@DragDropContext(('ontouchstart' in window)? HTML5Backend : HTML5Backend)
+@DragDropContext(HTML5Backend)
 export class FilesPage extends React.Component {    
     constructor(props){
         super(props);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { EventEmitter } from '../../data';
 import { BreadCrumb, PathElement } from '../../components/breadcrumb';
 import { pathBuilder } from '../../utilities';
-import { DropTarget } from 'react-dnd';
+import { DropTarget } from 'preact-dnd';
 
 
 export default class BreadCrumbTargettable extends BreadCrumb{
@@ -22,6 +22,7 @@ BreadCrumbTargettable.PropTypes = {
 
 const fileTarget = {
     canDrop(props){
+        return true;
         return props.isLast ? false : true;
     },
     drop(props, monitor, component){

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, NgIf, Icon, pathBuilder } from '../../utilities';
 import { EventEmitter } from '../../data';
-import { DragSource, DropTarget } from 'react-dnd';
+import { DragSource, DropTarget } from 'preact-dnd';
 
 const fileSource = {
     beginDrag(props, monitor, component) {
@@ -42,12 +42,15 @@ const fileTarget = {
     canDrop(props, monitor){
         let file = monitor.getItem();
         if(props.file.type === 'directory' && file.name !== props.file.name){
+            console.log("CAN DROP", props.file.type, props.file.name, file.name);
             return true;
         }else{
+            console.log("CAN'T DROP", props.file.type, file.name, props.file.name);
             return false;
         }
     },
     drop(props, monitor, component){
+        console.log("FILE DROP ON ANOTER FILE")
         let src = monitor.getItem();
         let dest = props.file;
 
@@ -151,6 +154,7 @@ export class ExistingThing extends React.Component {
         const { connectDragSource, connectDropFile, connectDropNativeFile } = this.props;
         let dragStyle = {whiteSpace: 'nowrap'};
         if(this.props.isDragging) { dragStyle.opacity = 0.15; }
+        console.log('file is over: '+this.props.fileIsOver, 'native file is over: '+this.props.nativeFileIsOver, 'is dragging file:'+this.props.isDragging)
         if((this.props.fileIsOver && this.props.canDropFile) || (this.props.nativeFileIsOver && this.props.canDropNativeFile)) {
             dragStyle.background = 'rgba(209, 255, 255,0.5)';
             dragStyle.border = '2px solid #38a6a6';

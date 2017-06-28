@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DropTarget, DragSource } from 'react-dnd';
+import { DropTarget, DragSource } from 'preact-dnd';
 import { NgIf } from './';
 
 const FileTarget = {

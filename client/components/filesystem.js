@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Path from 'path';
 import { Container, NgIf } from '../utilities';
 import { NewThing, ExistingThing, FileZone } from '../pages/filespage/';
-import { DropTarget } from 'react-dnd';
+import { DropTarget } from 'preact-dnd';
 
 
 

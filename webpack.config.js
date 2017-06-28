@@ -24,6 +24,12 @@ let config = {
             }
         ]
     },
+    resolve: {
+        alias: {
+            'react': 'preact-compat',
+            'react-dom': 'preact-compat'
+        }
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
@@ -55,7 +61,6 @@ if(process.env.NODE_ENV === 'production'){
             }
         }
     };
-    //config.entry.push('webpack/hot/only-dev-server');
 }
 
 

@@ -35,7 +35,8 @@ export class BreadCrumb extends React.Component {
     }
     
     render(Element) {
-        const Path = Element? Element : PathElement;
+        // for some reasons, preact was giving some unexpected arguments here so here is a hack ...
+        const Path = typeof Element === 'function'? Element : PathElement;
         return (
             <div>
               <BreadCrumbContainer className={this.props.className}>

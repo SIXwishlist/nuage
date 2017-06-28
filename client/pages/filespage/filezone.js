@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DropTarget } from 'react-dnd';
+import { DropTarget } from 'preact-dnd';
 import { EventEmitter }  from '../../data';
 
 
