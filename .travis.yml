@@ -4,7 +4,6 @@ services:
 
 before_install:
  - docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
- - npm install
     
 script:
  - npm run image 
