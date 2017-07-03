@@ -1,0 +1,11 @@
+language: node_js
+services:
+  - docker
+
+before_install:
+ - docker login -e $DOCKER_EMAIL -u $DOCKER_ORGANIZATION -p $DOCKER_PASSWORD    
+ - npm install
+    
+script:
+ - npm run image 
+ - npm run publish
