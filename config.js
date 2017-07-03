@@ -9,7 +9,7 @@
 
 module.exports = {
     info: {
-        host: 'application_url'
+        host: "application_url"
     },
     gdrive: {
         redirectURI: "application_url/login",
